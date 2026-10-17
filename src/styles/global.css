@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --color-canvas: #080b12;
+  --color-surface: #101621;
+  --color-ink: #f4f7ff;
+  --color-muted: #a0aec2;
+  --color-accent: #4778ff;
+  --color-highlight: #83aaff;
+  --animate-tech-marquee: tech-marquee 55s linear infinite;
+
+  @keyframes tech-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+@layer base {
+  html {
+    @apply scroll-smooth scroll-pt-24;
+    color-scheme: dark;
+  }
+  body {
+    @apply m-0 min-w-80 bg-canvas font-sans text-ink antialiased;
+  }
+  button,
+  a,
+  summary {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+  button,
+  summary {
+    @apply cursor-pointer;
+  }
+  a,
+  button,
+  summary {
+    @apply outline-offset-4 focus-visible:outline-2 focus-visible:outline-highlight;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+  p {
+    @apply leading-relaxed text-muted;
+  }
+  ::selection {
+    @apply bg-accent text-white;
+  }
+  dialog::backdrop {
+    @apply bg-black/80 backdrop-blur-md;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+/* Shared primitives only. Layout, responsive rules, colors, and effects live in TSX utilities. */
+@utility container {
+  @apply mx-auto w-[calc(100%-2.5rem)] max-w-7xl md:w-[calc(100%-5rem)] xl:w-[calc(100%-8rem)];
+}
+@utility section {
+  @apply py-18 md:py-24 lg:py-28;
+}
+@utility section-title {
+  @apply font-display text-4xl leading-[1.15] font-medium tracking-[-0.045em] md:text-5xl;
+}
+@utility eyebrow {
+  @apply mb-5 block font-mono text-[10px] font-medium tracking-[0.18em] text-highlight uppercase;
+}
+@utility button {
+  @apply inline-flex min-h-12 items-center justify-center gap-5 rounded-md bg-accent px-6 py-3.5 text-sm font-semibold text-white transition duration-200 hover:-translate-y-0.5 hover:bg-blue-500;
+}
+@utility text-link {
+  @apply inline-flex items-center gap-2 text-sm font-medium text-ink transition-colors hover:text-highlight;
+}
+@utility tag {
+  @apply rounded border border-white/10 px-2.5 py-1 text-[10px] text-muted;
+}
+@utility skip-link {
+  @apply fixed top-3 left-3 z-100 -translate-y-24 rounded bg-accent px-5 py-3 text-white focus:translate-y-0;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

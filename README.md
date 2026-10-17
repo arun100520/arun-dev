@@ -29,16 +29,6 @@ Tailwind is integrated through `@tailwindcss/vite`. Layouts, responsive breakpoi
 
 Edit `src/data/projects.ts`. All nine supplied projects are included:
 
-- SRMU — https://srmu.ac.in/ — approximately 90+ pages, designed and built by Arun in Next.js.
-- SRMCEM — https://srmcem.ac.in/ — approximately 90+ pages, designed and built by Arun in Next.js.
-- QualtSpire — https://qualtspire.vercel.app/
-- OwlChapter — https://www.owlchapter.in/
-- Khetidaar — https://www.khetidaar.in/
-- UNIF CRM — https://srdt.co.in/products/unif-crm
-- SRDT — https://srdt.co.in/
-- SRDT Training — https://training.srdt.co.in/
-- IPL Buzz — https://www.iplbuzzofficial.in/
-
 Public website screenshots are stored locally in `public/projects/`. The first three featured projects appear on the homepage; all projects appear on `/work`. Cards provide a direct website link and a details dialog. UNIF CRM links to its public product page rather than a private application.
 
 Add another entry:
